@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.container {
+  width: 95%;
+  margin: auto;
+  min-height: 40px;
+  position: relative;
+}
+
+div.container h1 {
+  font-size: 30px;
+  width: 50%;
+  margin: 0.5em 0;
+  letter-spacing: 1px;
+}
+
+div.container div.searchArea {
+  background-color: gold;
+  border-radius: 5px;
+  width: 55%;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  transition: width 500ms linear;
+}
+
+/* div.container div.searchArea:focus-within{ 
+  width: 55%;
+}
+*/
+div.searchArea input {
+  background-color: transparent;
+  height: 40px;
+  font-size: 20px;
+  width: 65%;
+  padding: 0.5rem;
+}
+
+div.container div.searchArea .button1 {
+  font-size: 17px;
+  letter-spacing: 1px;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  height: 40px;
+  width: 100px;
+  padding: 0.2em;
+  position: absolute;
+  right: 0;
+}
+
+/* button.button1:focus + button.button2 {
+  transform:  translateX(-50%) scaleY(1) !important;
+}
+div.searchArea input:focus ~ button.button2:not(button.button1) {
+  transform:  translateX(-50%) scaleY(1) !important;
+} */
+
+div.task {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+div.task div {
+  background-color: aqua;
+  width: 100%;
+  height: 40px;
+  border: solid;
+  border-radius: 10px;
+  margin: .5em 0;
+  position: relative;
+  border: solid;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+div.task div p {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: .5px;
+
+  margin-left: .5em;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.task div button {
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  letter-spacing: .5px;
+  padding: .1em .3em;
+  margin-right: .5em;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 500ms ease-in-out;
+}
+
+div.task div button:hover {
+  background: red;
+}
+
+div.task div:nth-of-type(odd) {
+  background-color: yellowgreen;
+}
