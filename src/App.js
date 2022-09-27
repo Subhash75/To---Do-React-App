@@ -1,13 +1,12 @@
-import SearchBar from "./components/searchBar";
+import React from "react";
+import Body from "./components/Body";
 
-
-const App = () => {
+function App() {
   return (
-    <div className="container">
-      <h1>My To-Do App</h1>
-      <SearchBar />
-    </div>
-  )
-};
+    <>
+      <Body />
+    </>
+  );
+}
 
 export default App;

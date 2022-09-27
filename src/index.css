@@ -1,117 +1,314 @@
-* {
-  margin: 0;
+*,
+*::before,
+*::after {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 1em;
+}
+
+div#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 div.container {
-  width: 95%;
-  margin: auto;
-  min-height: 40px;
+  width: 100%;
+  max-width: 490px;
+  height: 100vh;
+  min-height: 500px;
   position: relative;
 }
 
-div.container h1 {
-  font-size: 30px;
-  width: 50%;
-  margin: 0.5em 0;
-  letter-spacing: 1px;
-}
-
-div.container div.searchArea {
-  background-color: gold;
-  border-radius: 5px;
-  width: 55%;
-  height: 40px;
+div.header {
+  background-color: rgba(1, 105, 168, 1);
+  width: 100%;
+  max-width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   position: absolute;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  transition: width 500ms linear;
+  inset: 0;
 }
 
-/* div.container div.searchArea:focus-within{ 
-  width: 55%;
-}
-*/
-div.searchArea input {
-  background-color: transparent;
-  height: 40px;
-  font-size: 20px;
-  width: 65%;
-  padding: 0.5rem;
+
+div.header p:first-of-type {
+  margin: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-div.container div.searchArea .button1 {
-  font-size: 17px;
-  letter-spacing: 1px;
-  background-color: black;
+div.header svg {
+  color: rgba(1, 105, 168, 1);
+  background-color: white;
+  font-size: 2.5em;
+  padding: 0.4rem;
+  border: solid;
+  border-radius: 50%;
+}
+
+div.header span {
   color: white;
-  font-weight: 500;
-  height: 40px;
-  width: 100px;
-  padding: 0.2em;
+  font-size: 1.3em;
+  font-weight: 800;
+  margin-left: 1em;
+  display: inline-block;
+}
+
+div.header p:last-of-type {
+  color: white;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin: 0.6em 0.5em 0.4em;
+}
+
+div.home {
+  background-color: rgba(0, 47, 83, 1);
+  border: solid;
+  padding: 2em 1em 0;
+  margin-top: 60px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
   position: absolute;
-  right: 0;
+  z-index: 2;
+  inset: 0;
 }
 
-/* button.button1:focus + button.button2 {
-  transform:  translateX(-50%) scaleY(1) !important;
+div.home img {
+  width: 50%;
+  margin: auto;
+  display: block;
 }
-div.searchArea input:focus ~ button.button2:not(button.button1) {
-  transform:  translateX(-50%) scaleY(1) !important;
-} */
-
-div.task {
+div.home div {
   width: 100%;
-  margin-top: 2rem;
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-div.task div {
-  background-color: aqua;
+div.home p {
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+  font-style: italic;
+ 
+}
+
+div.home button {
+  color: rgba(0, 47, 83, 1);
+  font-size: 2.6em;
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 1em auto;
+  animation: 500ms glow ease-in infinite alternate;
+}
+
+@keyframes glow {
+  to {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+div.form {
+  background-color: rgba(0, 47, 83, 1);
+  color: white;
+  padding: 2em 1em 0;
+  margin-top: 60px;
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+}
+div.form p:first-of-type {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+
+div.form input[type='text'] {
+  background-color: rgba(0, 47, 83, 1);
+  color: white;
+  font-size: 1.2em;
   width: 100%;
-  height: 40px;
+  border: none;
+  border-bottom: solid rgba(1, 105, 168, 1);
+  padding-bottom: .3em;
+  outline: none;
+}
+
+div.form input[type='text']::placeholder {
+  color: rgb(180, 175, 175);
+}
+
+div.form p:last-of-type {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 3em;
+}
+
+div.form input[type='time'] {
+  margin-top: 1em;
+  padding: .3em .5em;
+  width: 100px;
+}
+
+div.form span.error-msg {
+  color: red;
   border: solid;
-  border-radius: 10px;
-  margin: .5em 0;
+  display: inline-block;
+  font-size: 1.2em;
+  padding: .3em;
+  margin-left: 2em;
   position: relative;
+}
+
+div.form span.error-msg::before {
+  content: '';
+  border: 15px solid;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.form button.add-task {
+  color: white;
+  background-color: rgba(1, 105, 168, 1);
+  font-size: 1.5em;
+  display: block;
+  margin: 4em auto 0;
+  padding: .5em .8em;
+  border: none;
+  border-radius: 5px;
+}
+
+div.alert {
+  background-color: rgba(0, 47, 83, 0.9);
   border: solid;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+div.alert div {
+  background-color: rgba(0, 47, 83, 1);
+  color: white;
+  font-size: 1.5em;
+  border: solid transparent;
+  padding: 1em; 
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+div.alert div button {
+  background-color: rgba(1, 105, 168, 1);
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  border: solid transparent;
+  border-radius: 5px;
+  margin: .5em auto 0;
+  padding: .3em;
+}
+
+
+div.view-task {
+  background-color: rgba(0, 47, 83, 1);
+  color: white;
+  overflow: auto;
+  border: 5px solid;
+  padding: 1em 1em 0;
+  margin-top: 60px;
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+}
+
+div.view-task div.view-task-heading {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.view-task div.view-task-heading p {
+  font-size: 1.75em;
+}
+
+div.view-task div.view-task-heading svg {
+  font-size: 1.75em;
+}
+
+div.view-task div.task {
+  padding: .5em;
+  border-top: solid;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
 
-div.task div p {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: .5px;
-
-  margin-left: .5em;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+div.view-task div.task p {
+  font-size: 1.2em;
 }
 
-div.task div button {
+div.view-task div.task p:nth-of-type(1) {
+  flex: 1 0 100%;
+  font-size: 1.75em;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: .3em;
+}
+
+div.view-task div.task svg {
+  font-size: 1.5em;
+}
+
+
+
+/* Styles for react date picker */
+div.react-date-picker__wrapper {
+  padding: 0.5em 0;
+  border: none;
+}
+
+.fun {
+  background-color: transparent;
+  width: 100%;
+  border-bottom: 1px solid rgba(1, 105, 168, 1);
+}
+
+.fun:hover {
+  border-bottom: 3px solid rgba(1, 105, 168, 1);
+}
+
+.react-time-picker__wrapper {
+  margin-top: 1em;
+}
+
+.react-date-picker__inputGroup__input{
   color: white;
-  background-color: black;
-  font-size: 20px;
-  letter-spacing: .5px;
-  padding: .1em .3em;
-  margin-right: .5em;
-  border-radius: 10px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: background 500ms ease-in-out;
 }
 
-div.task div button:hover {
-  background: red;
-}
-
-div.task div:nth-of-type(odd) {
-  background-color: yellowgreen;
+.react-date-picker__button svg {
+  background-color: white;
 }
