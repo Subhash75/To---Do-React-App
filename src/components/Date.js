@@ -58,7 +58,7 @@ function DateComp({
         className="add-task"
         onClick={() => {
           handleTask();
-          handleAlert();
+          handleAlert()
         }}
       >
         Add Task
